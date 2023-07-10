@@ -5,3 +5,5 @@ private.key
 public.key
 
 package-lock.json
+
+.DS_Store
