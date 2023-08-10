@@ -14,7 +14,7 @@ const verifyJwtRequest = async (
             'headers.authorization',
             ''
         ).replace(/^Bearer\s/, '');
-
+            
         const refreshToken: string = get(req, 'headers.x-refresh-token', '')
             .toString()
             .replace(/^Bearer\s/, '');

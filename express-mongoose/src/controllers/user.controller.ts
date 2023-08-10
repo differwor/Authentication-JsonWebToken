@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { createUser, getAll, validatePassword } from '../services/user.service';
 import { signJwt } from '../utils/jwt.utils';
+import { IResponse } from '../types/response.type';
 
 export const createUserHandler = async (req: Request, res: Response) => {
     try {
@@ -10,7 +11,7 @@ export const createUserHandler = async (req: Request, res: Response) => {
             return res.status(401).json({
                 status: 'error',
                 message: 'This name already existed!',
-            });
+            } as IResponse);
         }
 
         // create a access token - params: (payload, header)
@@ -32,13 +33,13 @@ export const createUserHandler = async (req: Request, res: Response) => {
                 refresh_token: refreshToken,
             },
             message: 'Account created successfully!',
-        });
+        } as IResponse);
     } catch (e: any) {
         return res.status(409).send({
             // 401: unauthorized
             status: 'error',
             message: e.message,
-        });
+        } as IResponse);
     }
 };
 
@@ -75,12 +76,12 @@ export const signinHandler = async (req: Request, res: Response) => {
                 refresh_token: refreshToken,
             },
             message: 'Login successfully!',
-        });
+        } as IResponse);
     } catch (e: any) {
         return res.status(409).send({
             status: 'error',
             message: e.message,
-        });
+        } as IResponse);
     }
 };
 

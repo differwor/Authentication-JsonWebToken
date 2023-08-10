@@ -6,8 +6,8 @@ export const loginSchema = yup.object({
         password: yup
             .string()
             .required()
-            .min(8)
-            .matches(/[a-zA-Z]/)
+            // .min(8)
+            // .matches(/[a-zA-Z]/)
             .label('Password'),
     }),
 });
