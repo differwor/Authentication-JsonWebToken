@@ -35,5 +35,5 @@ yarn-error.log*
 next-env.d.ts
 
 # key created by openssl
-private.key
-public.key
+# private.key
+# public.key
